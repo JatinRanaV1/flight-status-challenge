@@ -1,0 +1,15 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+*.suo
+
+# Angular
+flight-status-ui/node_modules/
+flight-status-ui/dist/
+flight-status-ui/.angular/
+
+# OS
+.DS_Store
+Thumbs.db
