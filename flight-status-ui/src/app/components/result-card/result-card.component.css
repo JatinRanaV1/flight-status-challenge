@@ -1,0 +1,93 @@
+.error-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff5f5;
+  border: 1px solid #feb2b2;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: #c53030;
+  max-width: 480px;
+  width: 100%;
+}
+.error-icon { font-size: 1.25rem; }
+
+/* Base card */
+.result-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  max-width: 480px;
+  width: 100%;
+  border-left: 5px solid transparent;
+}
+
+/* Status colour coding */
+.status-on-time   { border-left-color: #48bb78; }
+.status-delayed   { border-left-color: #ed8936; }
+.status-cancelled { border-left-color: #f56565; }
+.status-diverted  { border-left-color: #f56565; }
+.status-unknown   { border-left-color: #a0aec0; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+.flight-number { font-size: 1.5rem; font-weight: 700; color: #2d3748; }
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.status-on-time   .status-badge { background: #c6f6d5; color: #276749; }
+.status-delayed   .status-badge { background: #feebc8; color: #7b341e; }
+.status-cancelled .status-badge { background: #fed7d7; color: #9b2c2c; }
+.status-diverted  .status-badge { background: #fed7d7; color: #9b2c2c; }
+.status-unknown   .status-badge { background: #edf2f7; color: #4a5568; }
+
+.times-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.time-block { display: flex; flex-direction: column; }
+.label { font-size: 0.75rem; color: #718096; text-transform: uppercase; letter-spacing: 0.05em; }
+.value { font-size: 1.125rem; font-weight: 600; color: #2d3748; }
+
+.aerotrack-fields {
+  border-top: 1px solid #edf2f7;
+  padding-top: 1rem;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.detail-row { display: flex; justify-content: space-between; font-size: 0.9rem; }
+.detail-row .label { color: #718096; }
+.detail-row .value { color: #2d3748; font-weight: 500; }
+.delay-reason .value { color: #c05621; }
+
+.message-row {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #edf2f7;
+  font-size: 0.8rem;
+  color: #a0aec0;
+}

@@ -1,0 +1,55 @@
+<div *ngIf="errorMessage" class="error-card" role="alert">
+  <span class="error-icon">⚠</span>
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="result" class="result-card" [class]="statusClass">
+  <div class="card-header">
+    <span class="flight-number">{{ result.flightNumber }}</span>
+    <span class="status-badge">{{ result.status }}</span>
+  </div>
+
+  <div class="times-grid">
+    <div class="time-block">
+      <span class="label">Sched Dep</span>
+      <span class="value">{{ result.scheduledDeparture | date:'HH:mm' : 'UTC' }}</span>
+    </div>
+    <div class="time-block">
+      <span class="label">Sched Arr</span>
+      <span class="value">{{ result.scheduledArrival | date:'HH:mm' : 'UTC' }}</span>
+    </div>
+    <div *ngIf="result.actualDeparture" class="time-block">
+      <span class="label">Actual Dep</span>
+      <span class="value">{{ result.actualDeparture | date:'HH:mm' : 'UTC' }}</span>
+    </div>
+    <div *ngIf="result.actualArrival" class="time-block">
+      <span class="label">Actual Arr</span>
+      <span class="value">{{ result.actualArrival | date:'HH:mm' : 'UTC' }}</span>
+    </div>
+  </div>
+
+  <!-- AeroTrack-only fields: hidden when null (QuickFlight selected) -->
+  <div *ngIf="result.terminal || result.gate || result.delayReason" class="aerotrack-fields">
+    <div *ngIf="result.terminal" class="detail-row">
+      <span class="label">Terminal</span>
+      <span class="value">{{ result.terminal }}</span>
+    </div>
+    <div *ngIf="result.gate" class="detail-row">
+      <span class="label">Gate</span>
+      <span class="value">{{ result.gate }}</span>
+    </div>
+    <div *ngIf="result.delayReason" class="detail-row delay-reason">
+      <span class="label">Delay Reason</span>
+      <span class="value">{{ result.delayReason }}</span>
+    </div>
+  </div>
+
+  <div *ngIf="result.message" class="message-row">
+    {{ result.message }}
+  </div>
+
+  <div class="card-footer">
+    <span>Source: <strong>{{ result.providerSource }}</strong></span>
+    <span>Updated: {{ result.lastUpdatedUtc | date:'HH:mm' : 'UTC' }} UTC</span>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<main class="page">
+  <header class="page-header">
+    <h1>SkyRoute</h1>
+    <p>Real-time flight status</p>
+  </header>
+
+  <div class="content">
+    <app-search-form (stateChange)="onStateChange($event)" />
+    <app-result-card [result]="result" [errorMessage]="errorMessage" />
+  </div>
+</main>

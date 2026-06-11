@@ -1,0 +1,28 @@
+<section class="search-form">
+  <h2>Flight Status Lookup</h2>
+  <form (ngSubmit)="onSearch()" #f="ngForm" novalidate>
+    <div class="field">
+      <label for="flightNumber">Flight Number</label>
+      <input
+        id="flightNumber"
+        type="text"
+        name="flightNumber"
+        [(ngModel)]="flightNumber"
+        placeholder="e.g. AA100"
+        autocomplete="off"
+        required />
+    </div>
+    <div class="field">
+      <label for="date">Date</label>
+      <input
+        id="date"
+        type="date"
+        name="date"
+        [(ngModel)]="date"
+        required />
+    </div>
+    <button type="submit" [disabled]="loading || !flightNumber.trim() || !date">
+      {{ loading ? 'Searching...' : 'Search' }}
+    </button>
+  </form>
+</section>
